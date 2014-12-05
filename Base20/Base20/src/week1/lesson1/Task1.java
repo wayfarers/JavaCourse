@@ -9,6 +9,7 @@ public class Task1 {
 		String line = scan.nextLine();
 		Scanner scan2 = new Scanner(line);
 		int count = 0;
+		
 		while(scan2.hasNext()) {
 			count++;
 		}
