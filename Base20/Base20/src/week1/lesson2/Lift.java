@@ -6,17 +6,17 @@ public class Lift {
 	int totalHumansPassed = 0;
 	int humansAtHome = 20; 			//начальное кол-во людей в доме
 
-	public int move(int passengerOnFloor, int nextFloor, int countHuman) {
+	public boolean move(int passengerOnFloor, int nextFloor, int countHuman) {
 		// if (countHuman == 0) {
 		// System.out.println("***Нет людей для перевозки***");
 		// return -1;
 		// } else
 		if (nextFloor == currentFloor) {
 			System.out.println("***Лифт уже на этом этаже***");
-			return -1;
+			return false;
 		} else if ((countHuman > humansAtHome) && (passengerOnFloor != 1)) {
 			System.out.println("***Ошибка: Людей для перевозки больше, чем людей в доме***");
-			return -1;
+			return false;
 		}
 
 		if (passengerOnFloor != currentFloor)
@@ -32,7 +32,7 @@ public class Lift {
 
 		totalHumansPassed += countHuman;
 		currentFloor = nextFloor;
-		return 1;
+		return true;
 	}
 	
 	public int getHumansCount() {

@@ -9,6 +9,7 @@ public class MainLift {
 		int humansAtHome;
 		
 		for (int i = 1; i <= 10000; i++) {
+			
 			System.out.print(i + ". ");
 			humansAtHome = lift.getHumansCount();
 			fromFloor = (int) (Math.random() * 16) + 1;
@@ -19,7 +20,7 @@ public class MainLift {
 			else
 				humans = (int) (Math.random() * 5) + 1;
 			
-			if (1 == lift.move(fromFloor, toFloor, humans))
+			if (lift.move(fromFloor, toFloor, humans))
 				lift.printAboutMe();
 		}
 	}

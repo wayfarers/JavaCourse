@@ -3,8 +3,7 @@ package week1.lesson2;
 public class Car {
 	String number;
 	String color;
-	boolean engine = false;
-	boolean movement = false;
+	int status = 0;			//0 - не заведена, 1 - заведена, 3 - движение
 	
 	int countHuman = 0;
 	public void addHuman(int p) {
@@ -15,8 +14,8 @@ public class Car {
 	}
 	
 	public void start() {
-		if(!engine) {
-			engine = true;
+		if(status == 0) {
+			status = 1;
 			System.out.println("Авто с номером " + number + " завелось.");
 		}
 		else
@@ -24,20 +23,19 @@ public class Car {
 	}
 	
 	public void move() {
-		if (!movement && engine) {
-			movement = true;
+		if (status == 1) {
+			status = 3;
 			System.out.println("Авто с номером " + number + " поехало.");
 		}
-		else if (engine)
+		else if (status == 3)
 			System.out.println("Авто с номером " + number + " не может поехать, т.к. уже едет.");
 		else
 			System.out.println("Авто с номером " + number + " не может поехать, т.к. двигатель остановлен.");
 	}
 	
 	public void stop() {
-		if (movement) {
-			movement = false;
-			engine = false;
+		if (status == 3) {
+			status = 0;
 			System.out.println("Авто с номером " + number + " остановилось.");
 		} else
 			System.out.println("Авто с номером " + number + " не может остановится, т.к. не едет.");
