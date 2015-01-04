@@ -9,7 +9,6 @@ import utils.Utils;
 public class MainList {
 	
 	public static long getTime(long n, RevertableLinkedList list) {
-		
 		for (int i = 0; i < n; i++)
 			list.add(i);
 		
