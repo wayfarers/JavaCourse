@@ -1,39 +1,42 @@
 package jon;
 
-//1. Вывести элементы списка в обратном порядке, метод void printRevert()
-//2. Добавление элемента в начало, метод void addFirst(int element)
-//3. Добавление элемента в конец, метод void addLast(int element)
-//4. Перестроить элементы в списке в обратном порядке, метод void revert()
-//5. Частично упорядочить элементы списка, в случае если реализован интерфейс Comparable, метод void sortPartial(int index)
+/**
+ * 1. Вывести элементы списка в обратном порядке, метод void printRevert()
+ * 2. Добавление элемента в начало, метод void addFirst(int element)
+ * 3. Добавление элемента в конец, метод void addLast(int element)
+ * 4. Перестроить элементы в списке в обратном порядке, метод void revert()
+ * 5. Частично упорядочить элементы списка, в случае если реализован интерфейс Comparable, метод void sortPartial(int index)
+ * 
+ * @author wayfarer
+ */
 public class DoublyLinkList {
-	
-
 	private Dnode first;
+	private Dnode last;
 	private int lastIndex;
 	
 	public DoublyLinkList() {
-		first = null;
+		first = last = null;
 		lastIndex = 0;
 	}
 	
 	public void addLast(int value) {
-		if(first == null)
+		if(first == null) {
 			first = new Dnode(value);
-		else {
-			Dnode temp = first;
-			Dnode last = new Dnode(value);
-			while (temp.getNext() != null)
-				temp = temp.getNext();
-			temp.setNext(last);
+			last = first;
+		} else {
+			Dnode newLast = new Dnode(value);
+			last.setNext(newLast);
+			newLast.setPrev(last);
+			last = newLast;
 			lastIndex++;
-			last.setNext(temp);
 		}
 	}
 	
 	public void addFirst(int value) {
-		if(first == null)
+		if(first == null) {
 			first = new Dnode(value);
-		else {
+			last = first;
+		} else {
 			Dnode new_first = new Dnode(value);
 			new_first.setNext(first);
 			first.setPrev(new_first);
@@ -56,6 +59,14 @@ public class DoublyLinkList {
 	
 	public int size() {
 		return lastIndex + 1;
+	}
+	
+	public void printRevert() {
+		Dnode temp = last;
+		for (int i = 0; i <= lastIndex; i++) {
+			System.out.print(temp.getValue());
+			temp = temp.getPrev();
+		}
 	}
 }
 
