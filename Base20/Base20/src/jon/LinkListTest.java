@@ -12,8 +12,6 @@ public class LinkListTest {
 		list.revert();
 		for (int i = 0; i < 10; i++)
 			assertEquals(10 - i, list.get(i));
-		
-		
 	}
 
 	@Test
