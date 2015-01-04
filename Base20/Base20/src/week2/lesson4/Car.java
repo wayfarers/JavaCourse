@@ -10,9 +10,9 @@ public class Car {
 	int countHuman = 0;
 	
 	
-//	public Car() {
-//		this("123","Black", null);
-//	}
+	public Car() {
+		this("123","Black", null);
+	}
 	public Car(String num) {
 		this(num, "Black", null);
 	}
@@ -23,28 +23,25 @@ public class Car {
 		countCars++;
 		setColor(col);
 		setNumber(num);
-		if (trk != null)
-			setTrack(trk);
+		setTrack(trk);
 	}
 	public void setTrack(Track trk) {
 		if (track != null) {
 			System.out.println("У этого авто уже есть прицеп");
-		} else if (trk == null)
-			unsetTrack();
-		else if (trk.getConnectedTo() != null) {		// && trk.getConnectedTo() != this
+		} else if (trk.getConnectedTo() != null && trk.getConnectedTo() != this) {
 			System.out.println("Прицеп уже закреплен за другой машиной");
 		} else {
 			track = trk;
 			trk.setConnectedCar(this);
-			System.out.println("Прицеп закреплен.");
 		}
 	}
 	public void unsetTrack() {
-		if (track != null) {
-			track.setConnectedCar(null);
-			track = null;
-		} else
+		if (track == null) {
 			System.out.println("У этой машины нету прицепа");
+			return;
+		}
+		track.setConnectedCar(null);
+		track = null;
 	}
 	public Track getTrack() {
 		return track;

@@ -12,11 +12,7 @@ public class Track {
 	}
 	
 	public void setConnectedCar(Car car) {
-		if (car == null) {
-			connectedTo.unsetTrack();
-			connectedTo = null;
-			System.out.println("Прицеп отцеплен");
-		} else if (car != connectedTo && car.getTrack() == null) {
+		if (car != connectedTo) {
 			connectedTo = car;
 			if (car.getTrack() != this)
 				car.setTrack(this);
@@ -43,9 +39,5 @@ public class Track {
 			status = 0;
 			System.out.println("Прицеп номер " + number + " остановился");
 		}
-	}
-	
-	public String getNumber() {
-		return number;
 	}
 }

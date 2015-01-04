@@ -8,10 +8,12 @@ public class MainLift {
 		int humans;
 		int humansAtHome;
 		
-		for (int i = 1; i <= 10000; i++) {
-			
+		long time = System.nanoTime();
+		for (int i = 1; i <= 1000; i++) {
+			System.out.println(i + ": " + (System.nanoTime() - time) + " nanoseconds passed");
+			time = System.nanoTime();
 			System.out.print(i + ". ");
-			humansAtHome = lift.getHumansCount();
+			humansAtHome = lift.getHumansAtHome();
 			fromFloor = (int) (Math.random() * 16) + 1;
 			toFloor = (int) (Math.random() * 16) + 1;
 			

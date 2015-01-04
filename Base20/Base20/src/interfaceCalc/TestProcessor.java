@@ -15,14 +15,10 @@ public class TestProcessor extends AbstractProcessor {
 		if(ch < 10 && ch >= 0) {
 			number += c;
 			setResult(Integer.parseInt(number));
-//			setResult(ch);
-//			if (getTemp() == 0)
-//				setTemp(ch);
 		}
 		else if (c == '+' || c == '-' || c == '/' || c == '*') {
 			operation = c;
 			number = "";
-			//if (getTemp() == 0)
 				setTemp(getResult());
 		}
 		else if (c == '=') {

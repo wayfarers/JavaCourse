@@ -1,0 +1,41 @@
+[21:20:25] Кузменюк Максим: public class MainCalc {
+
+ public static void main(String[] args) {
+  AbstractProcessor processor = new TestProcessor();
+  Calc calc = new Calc(processor);
+
+  calc.inSymv('1');
+  calc.inSymv('+');
+  calc.inSymv('4');
+  calc.inSymv('=');
+ }
+}
+[21:20:36] Кузменюк Максим: public interface Processorable {
+ public void inputChar(char c);
+ public void printResult();
+}
+[21:20:43 | Изменены 21:22:02] Кузменюк Максим: public class TestProcessor extends AbstractProcessor{
+
+ @Override
+ public void inputChar(char c) {
+  System.out.println( c );   
+ }
+}
+[21:20:50 | Изменены 21:21:50] Кузменюк Максим: public class Calc {
+ AbstractProcessor proc;
+ public Calc(AbstractProcessor pr){
+  proc = pr;
+ }
+ public void inSymv(char c){
+  proc.inputChar( c );
+  proc.printResult();
+ }
+}
+[21:20:57] Кузменюк Максим: public abstract  class AbstractProcessor implements Processorable{
+ private int result;
+ private int temp; 
+ @Override
+ public void printResult() {
+  System.out.println("Result = " + result);
+ }
+}

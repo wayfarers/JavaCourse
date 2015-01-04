@@ -1,0 +1,13 @@
+Написать класс телефонов.
+ Phone(boolean touch, int number, boolean camera, int sideSize)
+ Nokia, Samsung
+ IPhone(int appleId),IPhone4, IPhone5
+ Что умеют делать:
+  - call(number)
+  - getModel()
+  - getAppleId()// для айфонов
+ MainPhone(список телефонов)
+Добавить пару телефонов с номерами каждого вида в список.
+С консоли считать 2 (индекса) номера телефона и вызвать методы call  с одного номер на второй.
+Затем считать с консоли номер телефона и вызвать для него getModel.  
+Затем считать с консоли номер телефона и вызвать для него getAppleId.

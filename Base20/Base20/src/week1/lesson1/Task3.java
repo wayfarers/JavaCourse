@@ -13,7 +13,7 @@ public class Task3 {
 
 	public static String reverse(String line) {
 		int size = line.length();
-		for (int i = 1; i < size * 2 - 1; i += 2) {
+		for (int i = 1; i < size*2-1; i+=2) {
 			line = line.charAt(i) + line;
 		}
 		return line.substring(0, size);

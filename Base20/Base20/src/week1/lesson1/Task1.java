@@ -9,11 +9,11 @@ public class Task1 {
 		String line = scan.nextLine();
 		Scanner scan2 = new Scanner(line);
 		int count = 0;
-		
-		while(scan2.hasNext()) {
+		while(scan.hasNext()) {
+			scan2.next();
 			count++;
 		}
-		scan2.close();
 		System.out.println(count);
+		scan2.close();
 	}
 }

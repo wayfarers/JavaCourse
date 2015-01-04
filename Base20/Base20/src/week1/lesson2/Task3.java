@@ -24,8 +24,8 @@ public class Task3 {
 		}
 		scan.close();
 		
-		String[] encoded = encode(file, 1); // flag 1 - encode; 0 - decode
-		//String[] decoded = encode(encoded, 0);
+		String[] encoded = encode(file, "encode"); // flag 1 - encode; 0 - decode
+		//String[] decoded = encode(file, "decode");
 		
 		FileWriter fw = new FileWriter("file1.txt");
 		for (String line : encoded) {
@@ -36,13 +36,15 @@ public class Task3 {
 		
 	}
 
-	public static String[] encode(String[] mas, int flag) {
+	public static String[] encode(String[] mas, String mode) {
 		// 1 - encode, 0 - decode
 		int shift = 0;
-		if (flag == 1)
+		if (mode == "encode")
 			shift = 3;
-		else
+		else if (mode == "decode")
 			shift = -3;
+		else
+			System.out.println("Select correct mode: encode/decode");
 		String[] coded = new String[mas.length];
 		for (int i = 0; i < mas.length; i++) {
 			coded[i] = "";

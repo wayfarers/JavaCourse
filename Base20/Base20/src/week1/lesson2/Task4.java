@@ -21,8 +21,7 @@ public class Task4 {
 		FileReader fr = new FileReader(filename);
 		Scanner file = new Scanner(fr);
 		String[][] parameters = new String[2][10];
-		String line = "";
-
+		String line = "";		//сюда считаем весь файл
 		while(file.hasNextLine()){
 			line += file.nextLine();
 		}
@@ -30,17 +29,17 @@ public class Task4 {
 		int j = 0;
 		int count = 0;
 		for (int i = 0; i < line.length() - 1; i++) {
-			if (line.charAt(i) == 59) {					//59 ASCII = ;
+			if (line.charAt(i) == ';') {
 				i++;
 				count++;
 				parameters[0][j] = "";
 				parameters[1][j] = "";
-				while (line.charAt(i) != 61) {	//61 ASCII = =
+				while (line.charAt(i) != '=') {
 					parameters[0][j] += line.charAt(i);
 					i++;
 				}
 				i += 2;
-				while (line.charAt(i) != 93) {	//93 ASCII = ]
+				while (line.charAt(i) != ']') {
 					parameters[1][j] += line.charAt(i);
 					i++;
 				}

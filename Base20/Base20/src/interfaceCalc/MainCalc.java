@@ -6,19 +6,8 @@ public class MainCalc {
 		Calc calc = new Calc(processor);
 
 		calc.inSymv('1');
-		calc.inSymv('1');
 		calc.inSymv('+');
 		calc.inSymv('4');
 		calc.inSymv('=');
-		calc.inSymv('+');
-		calc.inSymv('3');
-		calc.inSymv('=');
-		
-//		calc.inSymv('1');
-//		calc.inSymv('+');
-//		calc.inSymv('1');
-//		calc.inSymv('+');
-//		calc.inSymv('1');
-//		calc.inSymv('=');
 	}
 }
