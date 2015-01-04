@@ -19,8 +19,8 @@ public class MainList {
 	}
 	
 	public static void getChartData() {
-		List<Long> n = new ArrayList<>();
-		List<Long> time = new ArrayList<>();
+		List<Long> n = new ArrayList<Long>();
+		List<Long> time = new ArrayList<Long>();
 		
 		for (int i = 1; i < 100; i++) {
 			long N = 1L * i * 100;
