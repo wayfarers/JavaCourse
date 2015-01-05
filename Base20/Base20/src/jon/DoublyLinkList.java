@@ -12,11 +12,11 @@ package jon;
 public class DoublyLinkList {
 	private DNode first;
 	private DNode last;
-	private int lastIndex;
+	private int size;
 	
 	public DoublyLinkList() {
 		first = last = null;
-		lastIndex = 0;
+		size = 0;
 	}
 	
 	public void addLast(int value) {
@@ -28,8 +28,8 @@ public class DoublyLinkList {
 			last.setNext(newLast);
 			newLast.setPrev(last);
 			last = newLast;
-			lastIndex++;
 		}
+		size++;
 	}
 	
 	public void addFirst(int value) {
@@ -41,8 +41,8 @@ public class DoublyLinkList {
 			new_first.setNext(first);
 			first.setPrev(new_first);
 			first = new_first;
-			lastIndex++;
 		}
+		size++;
 	}
 	
 	public DNode getNode(int index) {
@@ -58,12 +58,12 @@ public class DoublyLinkList {
 	}
 	
 	public int size() {
-		return lastIndex + 1;
+		return size;
 	}
 	
 	public void printRevert() {
 		DNode temp = last;
-		for (int i = 0; i <= lastIndex; i++) {
+		for (int i = 0; i < size; i++) {
 			System.out.print(temp.getValue());
 			temp = temp.getPrev();
 		}
@@ -72,7 +72,7 @@ public class DoublyLinkList {
 	public void revert() {
 		DNode current = first;
 		DNode temp;
-		for (int i = 0; i <= lastIndex; i++) {
+		for (int i = 0; i < size; i++) {
 			temp = current.getNext();
 			current.setNext(current.getPrev());
 			current.setPrev(temp);

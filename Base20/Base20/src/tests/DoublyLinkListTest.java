@@ -24,6 +24,7 @@ public class DoublyLinkListTest {
 	public void testAddFirst() {
 		DoublyLinkList list = new DoublyLinkList();
 		fill(list, true);
+		assertEquals(5, list.size());
 		for (int i = 0; i < list.size(); i++) {
 			assertEquals(5 - i, list.get(i));
 		}
