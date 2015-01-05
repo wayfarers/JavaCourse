@@ -1,6 +1,9 @@
-package jon;
+package tests;
 
 import static org.junit.Assert.*;
+import jon.LinearLinkedList;
+import jon.RevertableLinkedList;
+import jon.SwappableLinkedList;
 
 import org.junit.Test;
 

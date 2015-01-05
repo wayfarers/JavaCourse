@@ -138,6 +138,19 @@ public class LinkList {
 		}
 		first = newFirst;
 	}
+	
+	public void sortPartial(int index) {}
+	public void sort() {}
+	public void removeDuplicates() {}
+	public void swapMaxMin() {}
+	
+	public boolean equals(LinkList list) {
+		return false;
+	}
+	
+	public LinkList concat(LinkList list) {
+		return list;
+	}
 }
 
 /**

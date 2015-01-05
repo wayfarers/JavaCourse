@@ -10,8 +10,8 @@ package jon;
  * @author wayfarer
  */
 public class DoublyLinkList {
-	private Dnode first;
-	private Dnode last;
+	private DNode first;
+	private DNode last;
 	private int lastIndex;
 	
 	public DoublyLinkList() {
@@ -21,10 +21,10 @@ public class DoublyLinkList {
 	
 	public void addLast(int value) {
 		if(first == null) {
-			first = new Dnode(value);
+			first = new DNode(value);
 			last = first;
 		} else {
-			Dnode newLast = new Dnode(value);
+			DNode newLast = new DNode(value);
 			last.setNext(newLast);
 			newLast.setPrev(last);
 			last = newLast;
@@ -34,10 +34,10 @@ public class DoublyLinkList {
 	
 	public void addFirst(int value) {
 		if(first == null) {
-			first = new Dnode(value);
+			first = new DNode(value);
 			last = first;
 		} else {
-			Dnode new_first = new Dnode(value);
+			DNode new_first = new DNode(value);
 			new_first.setNext(first);
 			first.setPrev(new_first);
 			first = new_first;
@@ -45,15 +45,15 @@ public class DoublyLinkList {
 		}
 	}
 	
-	public Dnode getNode(int index) {
-		Dnode node = first;
+	public DNode getNode(int index) {
+		DNode node = first;
 		for (int i = 0; i < index; i++)
 			node = node.getNext();
 		return node;
 	}
 	
 	public int get(int index) {
-		Dnode temp = getNode(index);
+		DNode temp = getNode(index);
 		return temp.getValue();
 	}
 	
@@ -62,7 +62,7 @@ public class DoublyLinkList {
 	}
 	
 	public void printRevert() {
-		Dnode temp = last;
+		DNode temp = last;
 		for (int i = 0; i <= lastIndex; i++) {
 			System.out.print(temp.getValue());
 			temp = temp.getPrev();
@@ -70,44 +70,46 @@ public class DoublyLinkList {
 	}
 	
 	public void revert() {
-		Dnode current = first;
-		Dnode temp;
+		DNode current = first;
+		DNode temp;
 		for (int i = 0; i <= lastIndex; i++) {
 			temp = current.getNext();
 			current.setNext(current.getPrev());
 			current.setPrev(temp);
-			temp = current.getPrev();
+			current = current.getPrev();
 		}
 		temp = first;
 		first = last;
 		last = temp;
 	}
+	
+	public void sortPartial(int index) {}
 }
 
-class Dnode {
+class DNode {
 	private int value;
-	private Dnode next;
-	private Dnode prev;
+	private DNode next;
+	private DNode prev;
 	
-	public Dnode(int value) {
+	public DNode(int value) {
 		this.value = value;
 		next = null;
 		prev = null;
 	}
 	
-	public Dnode getNext() {
+	public DNode getNext() {
 		return next;
 	}
 	
-	public Dnode getPrev() {
+	public DNode getPrev() {
 		return prev;
 	}
 	
-	public void setNext(Dnode next) {
+	public void setNext(DNode next) {
 		this.next = next;
 	}
 	
-	public void setPrev(Dnode prev) {
+	public void setPrev(DNode prev) {
 		this.prev = prev;
 	}
 	
