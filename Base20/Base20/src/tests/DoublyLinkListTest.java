@@ -12,7 +12,7 @@ import org.junit.Test;
 public class DoublyLinkListTest {
 	private void fill(DoublyLinkList list, boolean reverse) {
 		if (reverse){
-			for (int i = 5; i >= 1; i--)
+			for (int i = 1; i <= 5; i++)
 				list.addFirst(i);
 		} else {
 			for (int i = 1; i <= 5; i++)
@@ -25,7 +25,7 @@ public class DoublyLinkListTest {
 		DoublyLinkList list = new DoublyLinkList();
 		fill(list, true);
 		for (int i = 0; i < list.size(); i++) {
-			assertEquals(i + 1, list.get(i));
+			assertEquals(5 - i, list.get(i));
 		}
 	}
 	
@@ -49,6 +49,16 @@ public class DoublyLinkListTest {
 			assertEquals("54321", outContent.toString());
 		} finally {
 			System.setOut(null);
+		}
+	}
+	
+	@Test
+	public void testRevert() {
+		DoublyLinkList list = new DoublyLinkList();
+		fill(list, true);
+		list.revert();
+		for (int i = 0; i < list.size(); i++) {
+			assertEquals(i + 1, list.get(i));
 		}
 	}
 }

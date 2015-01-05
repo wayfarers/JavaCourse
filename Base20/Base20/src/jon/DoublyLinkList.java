@@ -68,6 +68,20 @@ public class DoublyLinkList {
 			temp = temp.getPrev();
 		}
 	}
+	
+	public void revert() {
+		Dnode current = first;
+		Dnode temp;
+		for (int i = 0; i <= lastIndex; i++) {
+			temp = current.getNext();
+			current.setNext(current.getPrev());
+			current.setPrev(temp);
+			temp = current.getPrev();
+		}
+		temp = first;
+		first = last;
+		last = temp;
+	}
 }
 
 class Dnode {
