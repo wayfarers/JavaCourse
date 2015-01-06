@@ -22,24 +22,29 @@ public class ShellSortTest {
 		System.out.println("=======");
 	}
 	
-	//@Test
+	@Test
 	public void testInsertionSort() {
-		test(new int[]{3, 2, 0, 4, 3, 7, 1, 6, 5, 3});
+		test(new int[]{3, 2, 1, 4, 3, 7, 1, 6, 5, 3});
 	}
 	
-	//@Test
+	@Test
 	public void testInsertionSort2() {
 		test(new int[]{6, 7, 7, 6, 3, 6, 3, 4, 5});
 	}
 	
 	@Test
 	public void testInsertionSort3() {
-		test(new int[]{4, 3, 4, 4, 2});
+		test(new int[]{4, 3, 4, 4, 2, 0});
 	}
 	
-	//@Test
+	@Test
 	public void testInsertionSort4() {
 		test(new int[]{6, 3, 4, 5, 6});
+	}
+	
+	@Test
+	public void testInsertionSort5() {
+		test(new int[]{5, 4, 3, 2, 1});
 	}
 
 }

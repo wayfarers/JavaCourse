@@ -11,14 +11,13 @@ public class InsertionSorter {
 				}
 				j++;
 				
-				//вставить на место j
+				//insert at [j]
 				int insertionElement = a[i];
 				for (int k = i; k > j; k--) {
 					a[k] = a[k - 1];
 					System.out.println(k + " " + (k - 1));
 				}
 				a[j] = insertionElement;
-				//System.out.println(j + " " + i);
 			}
 		}
 	}
