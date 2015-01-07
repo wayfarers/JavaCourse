@@ -17,7 +17,7 @@ public class Task1 {
 		Scanner scan = new Scanner(fr);
 		int i = 0;
 		while (scan.hasNextLine()) {
-			System.out.println("строка с номером :" + i + ": " + scan.nextLine());
+			System.out.println("line with # :" + i + ": " + scan.nextLine());
 		}
 		scan.close();
 

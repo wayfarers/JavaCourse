@@ -9,7 +9,7 @@ public class TestProcessor extends AbstractProcessor {
 	}
 	@Override
 	public void inputChar(char c) {
-		//System.out.println("¬ведено " + c);
+		//System.out.println("Input " + c);
 		
 		int ch = Character.getNumericValue(c);
 		if(ch < 10 && ch >= 0) {

@@ -4,24 +4,24 @@ public class StringExmple {
 	 @SuppressWarnings("unused")
 	public static void main(String[] args) {
 		  String s = "abcdefg";
-		  // определяет длину строки
+		  // РѕРїСЂРµРґРµР»СЏРµС‚ РґР»РёРЅСѓ СЃС‚СЂРѕРєРё
 		  int k = s.length();//7 
 		  
-		  // s.charAt( indexA) - возвращает символ строки s, который находится под индексом indexA 
+		  // s.charAt( indexA) - РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРёРјРІРѕР» СЃС‚СЂРѕРєРё s, РєРѕС‚РѕСЂС‹Р№ РЅР°С…РѕРґРёС‚СЃСЏ РїРѕРґ РёРЅРґРµРєСЃРѕРј indexA 
 		  char c1 = s.charAt(0);// 'a'
 		  char c2 = s.charAt(2);// 'c'
 		  
-		  // s.indexOf( str) возвращает индекс из строки s , где начинается строка str  
+		  // s.indexOf( str) РІРѕР·РІСЂР°С‰Р°РµС‚ РёРЅРґРµРєСЃ РёР· СЃС‚СЂРѕРєРё s , РіРґРµ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃС‚СЂРѕРєР° str  
 		  int k1 = s.indexOf( "ab" ); //0
 		  int k2 = s.indexOf( "de" ); // 3
 		  int k3 = s.indexOf( "bf" ); //-1
 		  
-		  //s.substring(indexA, indexB) - возвращает подстроку, которая начинается с indexA по indexB не включительно
+		  //s.substring(indexA, indexB) - РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕРґСЃС‚СЂРѕРєСѓ, РєРѕС‚РѕСЂР°СЏ РЅР°С‡РёРЅР°РµС‚СЃСЏ СЃ indexA РїРѕ indexB РЅРµ РІРєР»СЋС‡РёС‚РµР»СЊРЅРѕ
 		  String s1 = s.substring( 2, 6); // "cdef"
 		  
-		  //s.equals(s1) - сравнение строк
-		  if(s1.equals(s)) System.out.println("строки равные");
-		    else System.out.println("строки разные");
+		  //s.equals(s1) - СЃСЂР°РІРЅРµРЅРёРµ СЃС‚СЂРѕРє
+		  if(s1.equals(s)) System.out.println("СЃС‚СЂРѕРєРё СЂР°РІРЅС‹Рµ");
+		    else System.out.println("СЃС‚СЂРѕРєРё СЂР°Р·РЅС‹Рµ");
 		 }
 
 }

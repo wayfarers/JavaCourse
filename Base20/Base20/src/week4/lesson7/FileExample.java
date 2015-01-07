@@ -14,19 +14,19 @@ public class FileExample {
 		System.out.println();
 
 		File f2 = new File("d://book/html.txt");
-		if(f2.isDirectory()) System.out.println("Это директория");
-		else System.out.println("Это файл"); 
+		if(f2.isDirectory()) System.out.println("Р­С‚Рѕ РґРёСЂРµРєС‚РѕСЂРёСЏ");
+		else System.out.println("Р­С‚Рѕ С„Р°Р№Р»"); 
 		System.out.println(f2.getCanonicalPath());
 		System.out.println(f2.getAbsolutePath());
 		System.out.println(File.separatorChar);
 		System.out.println();
 
 		File f3 = new File("d://book/any.txt");
-		if(f3.isDirectory()) System.out.println("Это директория");
-		else System.out.println("Это файл"); 
+		if(f3.isDirectory()) System.out.println("Р­С‚Рѕ РґРёСЂРµРєС‚РѕСЂРёСЏ");
+		else System.out.println("Р­С‚Рѕ С„Р°Р№Р»"); 
 		if(!f3.exists()) {
 			f3.createNewFile();
-			System.out.println("Новый файл");
+			System.out.println("РќРѕРІС‹Р№ С„Р°Р№Р»");
 		}
 	}
 }

@@ -3,13 +3,13 @@ package week3.lesson5;
 public class Delegation {
 	public class Hands {
 		public void clap() {
-			System.out.println("Хлопать в ладоши");
+			System.out.println("РҐР»РѕРїР°С‚СЊ РІ Р»Р°РґРѕС€Рё");
 		}
 	}
 
 	public class Legs {
 		public void jump() {
-			System.out.println("Прыгать");
+			System.out.println("РџСЂС‹РіР°С‚СЊ"); 
 		}
 	}
 

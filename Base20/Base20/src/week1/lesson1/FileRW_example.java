@@ -17,7 +17,7 @@ public class FileRW_example {
 		  Scanner scan = new Scanner(fr);
 		  int i = 0;
 		  while (scan.hasNextLine()) {
-		   System.out.println("строка с номером :" + i+": " + scan.nextLine());
+		   System.out.println("СЃС‚СЂРѕРєР° СЃ РЅРѕРјРµСЂРѕРј :" + i+": " + scan.nextLine());
 		  }
 		  scan.close();
 		 }

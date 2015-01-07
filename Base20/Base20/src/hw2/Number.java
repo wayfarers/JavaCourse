@@ -36,7 +36,7 @@ public class Number {
 		if (value == 0)
 			return new Number(1);
 		else if (value < 0) {
-			System.out.println("«начение дл€ факториала должно быть больше нул€.");
+			System.out.println("A value for factorial should be > 0.");
 			return new Number(0);
 		}
 		for (int i = 1; i <= value; i++)

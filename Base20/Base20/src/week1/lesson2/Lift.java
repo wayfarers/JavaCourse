@@ -4,31 +4,31 @@ public class Lift {
 	int currentFloor = 1;
 	int totalFloorsPassed = 0;
 	int totalHumansPassed = 0;
-	int humansAtHome = 20; 			//начальное кол-во людей в доме
+	int humansAtHome = 20; 			//РЅР°С‡Р°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ Р»СЋРґРµР№ РІ РґРѕРјРµ
 
 	public boolean move(int fromFloor, int nextFloor, int countHuman) {
 		// if (countHuman == 0) {
-		// System.out.println("***Нет людей для перевозки***");
+		// System.out.println("***РќРµС‚ Р»СЋРґРµР№ РґР»СЏ РїРµСЂРµРІРѕР·РєРё***");
 		// return -1;
 		// } else
 		if (nextFloor == currentFloor) {
-			System.out.println("***Лифт уже на этом этаже***");
+			System.out.println("***Р›РёС„С‚ СѓР¶Рµ РЅР° СЌС‚РѕРј СЌС‚Р°Р¶Рµ***");
 			return false;
 		} else if ((countHuman > humansAtHome) && (fromFloor != 1)) {
-			System.out.println("***Ошибка: Людей для перевозки больше, чем людей в доме***");
+			System.out.println("***РћС€РёР±РєР°: Р›СЋРґРµР№ РґР»СЏ РїРµСЂРµРІРѕР·РєРё Р±РѕР»СЊС€Рµ, С‡РµРј Р»СЋРґРµР№ РІ РґРѕРјРµ***");
 			return false;
 		}
 
 		if (fromFloor != currentFloor)
 			move(currentFloor, fromFloor, 0);
-		if (nextFloor == 1) // едем на 1й этаж, люди выходяи из дома
+		if (nextFloor == 1) // РµРґРµРј РЅР° 1Р№ СЌС‚Р°Р¶, Р»СЋРґРё РІС‹С…РѕРґСЏРё РёР· РґРѕРјР°
 			humansAtHome -= countHuman;
 		if (currentFloor == 1)
-			humansAtHome += countHuman; // едем с 1го этажа, люди заходят в дом
+			humansAtHome += countHuman; // РµРґРµРј СЃ 1РіРѕ СЌС‚Р°Р¶Р°, Р»СЋРґРё Р·Р°С…РѕРґСЏС‚ РІ РґРѕРј
 		if (nextFloor > currentFloor)
-			totalFloorsPassed += nextFloor - currentFloor; // едем вверх
+			totalFloorsPassed += nextFloor - currentFloor; // РµРґРµРј РІРІРµСЂС…
 		else
-			totalFloorsPassed += currentFloor - nextFloor; // едем вниз
+			totalFloorsPassed += currentFloor - nextFloor; // РµРґРµРј РІРЅРёР·
 
 		totalHumansPassed += countHuman;
 		currentFloor = nextFloor;
@@ -40,12 +40,12 @@ public class Lift {
 	}
 
 	public void printAboutMe() {
-		System.out.println("Текущий этаж: " + currentFloor);
-		System.out.println("Всего перевезено людей: " + totalHumansPassed);
-		System.out.println("Всего пройдено этажей : " + totalFloorsPassed);
-		System.out.println("Людей сейчас в доме: " + humansAtHome);
+		System.out.println("РўРµРєСѓС‰РёР№ СЌС‚Р°Р¶: " + currentFloor);
+		System.out.println("Р’СЃРµРіРѕ РїРµСЂРµРІРµР·РµРЅРѕ Р»СЋРґРµР№: " + totalHumansPassed);
+		System.out.println("Р’СЃРµРіРѕ РїСЂРѕР№РґРµРЅРѕ СЌС‚Р°Р¶РµР№ : " + totalFloorsPassed);
+		System.out.println("Р›СЋРґРµР№ СЃРµР№С‡Р°СЃ РІ РґРѕРјРµ: " + humansAtHome);
 		if (totalFloorsPassed >= 100)
-			System.out.println("Требуется техническое обслуживание.");
+			System.out.println("РўСЂРµР±СѓРµС‚СЃСЏ С‚РµС…РЅРёС‡РµСЃРєРѕРµ РѕР±СЃР»СѓР¶РёРІР°РЅРёРµ.");
 		System.out.println();
 	}
 }

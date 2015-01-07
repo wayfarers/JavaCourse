@@ -25,19 +25,19 @@ public class Track {
 	
 	public void roll() {
 		if (status == 1)
-			System.out.println("Прицеп номер " + number + " уже катится");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " СѓР¶Рµ РєР°С‚РёС‚СЃСЏ");
 		else {
 			status = 1;
-			System.out.println("Прицеп номер " + number + " покатился");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " РїРѕРєР°С‚РёР»СЃСЏ");
 		}
 	}
 	
 	public void stop() {
 		if (status == 0)
-			System.out.println("Прицеп номер " + number + " уже стоит");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " СѓР¶Рµ СЃС‚РѕРёС‚");
 		else {
 			status = 0;
-			System.out.println("Прицеп номер " + number + " остановился");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ");
 		}
 	}
 }

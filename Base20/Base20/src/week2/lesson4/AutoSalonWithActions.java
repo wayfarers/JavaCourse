@@ -19,7 +19,7 @@ public class AutoSalonWithActions {
 	}
 	private void showMenu() {
 		int i = 1;
-		System.out.println("Выберите пункт:");
+		System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚:");
 		for (Action action : actions) {
 			System.out.println(i + ". " + action.getName());
 			i++;
@@ -35,7 +35,7 @@ public class AutoSalonWithActions {
 
 		@Override
 		public String getName() {
-			return "Добавить новый автомобиль";
+			return "Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р°РІС‚РѕРјРѕР±РёР»СЊ";
 			
 		}
 
@@ -50,7 +50,7 @@ public class AutoSalonWithActions {
 
 		@Override
 		public String getName() {
-			return "Добавить новый прицеп";
+			return "Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РїСЂРёС†РµРї";
 			
 		}
 

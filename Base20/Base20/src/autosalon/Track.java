@@ -15,21 +15,15 @@ public class Track {
 		if (car == null) {
 			if (connectedTo.getTrack() == null) {
 				connectedTo = null;
-				System.out.println("Прицеп отцеплен\n");
+				System.out.println("РџСЂРёС†РµРї РѕС‚С†РµРїР»РµРЅ\n");
 			} else 
 				connectedTo.unsetTrack();
-			//connectedTo = null;
-			//System.out.println("Прицеп отцеплен");
 		} else 
 			if (car != connectedTo) {
-				//if (car.getTrack() == null) {
 				if (car.getTrack() == this) {
 					connectedTo = car;
-//					if (car.getTrack() != this)
-//						car.setTrack(this);
-//					else System.out.println("Этот прицеп уже закреплен за этой машиной\n");
-				} else System.out.println("У этой машины уже есть другой прицеп\n");
-			} else System.out.println("Эти прицеп и машина уже закреплены\n");
+				} else System.out.println("РЈ СЌС‚РѕР№ РјР°С€РёРЅС‹ СѓР¶Рµ РµСЃС‚СЊ РґСЂСѓРіРѕР№ РїСЂРёС†РµРї\n");
+			} else System.out.println("Р­С‚Рё РїСЂРёС†РµРї Рё РјР°С€РёРЅР° СѓР¶Рµ Р·Р°РєСЂРµРїР»РµРЅС‹\n");
 	}
 
 	public Car getConnectedTo() {
@@ -38,19 +32,19 @@ public class Track {
 	
 	public void roll() {
 		if (status == 1)
-			System.out.println("Прицеп номер " + number + " уже катится");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " СѓР¶Рµ РєР°С‚РёС‚СЃСЏ");
 		else {
 			status = 1;
-			System.out.println("Прицеп номер " + number + " покатился");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " РїРѕРєР°С‚РёР»СЃСЏ");
 		}
 	}
 	
 	public void stop() {
 		if (status == 0)
-			System.out.println("Прицеп номер " + number + " уже стоит");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " СѓР¶Рµ СЃС‚РѕРёС‚");
 		else {
 			status = 0;
-			System.out.println("Прицеп номер " + number + " остановился");
+			System.out.println("РџСЂРёС†РµРї РЅРѕРјРµСЂ " + number + " РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ");
 		}
 	}
 	

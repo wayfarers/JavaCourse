@@ -4,20 +4,20 @@ public class DivInitial {
 	int p;
 	{
 		p = 10;
-		System.out.println("Блок инициализации1");
+		System.out.println("Р‘Р»РѕРє РёРЅРёС†РёР°Р»РёР·Р°С†РёРё1");
 	}
 	{
 		p = 20;
-		System.out.println("Блок инициализации2");
+		System.out.println("Р‘Р»РѕРє РёРЅРёС†РёР°Р»РёР·Р°С†РёРё2");
 		f();
 	}
 
 	static{
-		System.out.println("static Блок инициализации");
+		System.out.println("static Р‘Р»РѕРє РёРЅРёС†РёР°Р»РёР·Р°С†РёРё");
 		//f();
 	}
 	public DivInitial(){
-		System.out.println("Конструктор");
+		System.out.println("РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ");
 	} 
 	public void f(){
 

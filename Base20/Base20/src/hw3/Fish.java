@@ -7,10 +7,10 @@ public class Fish extends Product {
 		name = "Tom";
 	}
 	public void cannibalism(Fish fish) {
-		System.out.println("≈м рыбу" + fish.name);
+		System.out.println("I'm eating a fish" + fish.name);
 	}
 	
 	public void swim() {
-		System.out.println("ѕлыву");
+		System.out.println("I'm swimming");
 	}
 }

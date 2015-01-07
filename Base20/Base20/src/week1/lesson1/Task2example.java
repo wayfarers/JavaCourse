@@ -1,8 +1,7 @@
 package week1.lesson1;
 import java.util.Scanner;
 /*
-вводит с консоли целое число и выводит на экран 
-удвоенное 
+Inputs an int value from console and displays value * 2
  */
 public class Task2example {
 

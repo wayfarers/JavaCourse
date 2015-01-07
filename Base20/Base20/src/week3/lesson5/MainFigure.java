@@ -10,7 +10,7 @@ public class MainFigure {
 		Figure[] array = {tri, squ, cir, rec};
 //		System.out.println(array[0].getPerimeter());
 		for (Figure figure : array) {
-			System.out.println("Периметр: " + figure.getPerimeter() + " Площадь: " + figure.getSquare());
+			System.out.println("Perimeter: " + figure.getPerimeter() + " Square: " + figure.getSquare());
 		}
 		System.exit(0);
 	}

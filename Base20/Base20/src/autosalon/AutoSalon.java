@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class AutoSalon {
 	private ArrayList<Car> cars = new ArrayList<Car>();
 	private ArrayList<Track> tracks = new ArrayList<Track>();
-	private String[] menuList = {"Добавить новый автомобиль", "Добавить новый прицеп",
-			"Закрепить к авто прицеп", "Открепить от авто прицеп", "Отобразить список авто",
-			"Отобразить список прицепов", "Отобразить закрепления авто за прицепами", "Выход" };
+	private String[] menuList = {"Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р°РІС‚РѕРјРѕР±РёР»СЊ", "Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РїСЂРёС†РµРї",
+			"Р—Р°РєСЂРµРїРёС‚СЊ Рє Р°РІС‚Рѕ РїСЂРёС†РµРї", "РћС‚РєСЂРµРїРёС‚СЊ РѕС‚ Р°РІС‚Рѕ РїСЂРёС†РµРї", "РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРїРёСЃРѕРє Р°РІС‚Рѕ",
+			"РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРїРёСЃРѕРє РїСЂРёС†РµРїРѕРІ", "РћС‚РѕР±СЂР°Р·РёС‚СЊ Р·Р°РєСЂРµРїР»РµРЅРёСЏ Р°РІС‚Рѕ Р·Р° РїСЂРёС†РµРїР°РјРё", "Р’С‹С…РѕРґ" };
 	
 	public void start() {
 		
@@ -21,35 +21,35 @@ public class AutoSalon {
 			showMenu(menuList);
 			item = scan.nextInt();
 			switch (item) {
-			case 1:			//Добавить новый автомобиль
-				System.out.println("Введите номер нового авто");
+			case 1:			//Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ Р°РІС‚РѕРјРѕР±РёР»СЊ
+				System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РЅРѕРІРѕРіРѕ Р°РІС‚Рѕ");
 				cars.add(new Car(scan.next()));
-				System.out.println("Автомобиль добавлен\n");
+				System.out.println("РђРІС‚РѕРјРѕР±РёР»СЊ РґРѕР±Р°РІР»РµРЅ\n");
 				break;
-			case 2:			//Добавить новый прицеп
-				System.out.println("Введите номер нового прицепа");
+			case 2:			//Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІС‹Р№ РїСЂРёС†РµРї
+				System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РЅРѕРІРѕРіРѕ РїСЂРёС†РµРїР°");
 				tracks.add(new Track(scan.next()));
-				System.out.println("Прицеп добавлен\n");
+				System.out.println("РџСЂРёС†РµРї РґРѕР±Р°РІР»РµРЅ\n");
 				break;
-			case 3:			//Закрепить к авто прицеп(запрос индексов авто и прицепов)
-				System.out.println("Введите номер авто, к которому нужно прицепить прицеп");
+			case 3:			//Р—Р°РєСЂРµРїРёС‚СЊ Рє Р°РІС‚Рѕ РїСЂРёС†РµРї(Р·Р°РїСЂРѕСЃ РёРЅРґРµРєСЃРѕРІ Р°РІС‚Рѕ Рё РїСЂРёС†РµРїРѕРІ)
+				System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р°РІС‚Рѕ, Рє РєРѕС‚РѕСЂРѕРјСѓ РЅСѓР¶РЅРѕ РїСЂРёС†РµРїРёС‚СЊ РїСЂРёС†РµРї");
 				//String num_car = scan.next();
 				carIndex = indexOfCar(scan.next());
 				if (carIndex >= 0) {
-					System.out.println("Введите номер прицепа, который нужно прицепить");
+					System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїСЂРёС†РµРїР°, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РїСЂРёС†РµРїРёС‚СЊ");
 					trackIndex = indexOfTrack(scan.next());
 					if (trackIndex >= 0) {
 						cars.get(carIndex).setTrack(tracks.get(trackIndex));
 					}
 				}
 				break;
-			case 4:			//Открепить от авто прицеп(запрос индекса авто).
-				System.out.println("Введите номер авто");
+			case 4:			//РћС‚РєСЂРµРїРёС‚СЊ РѕС‚ Р°РІС‚Рѕ РїСЂРёС†РµРї(Р·Р°РїСЂРѕСЃ РёРЅРґРµРєСЃР° Р°РІС‚Рѕ).
+				System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р°РІС‚Рѕ");
 				carIndex = indexOfCar(scan.next());
 				if (carIndex >= 0) 
 					cars.get(carIndex).unsetTrack();
 				break;
-			case 5:			//Отобразить список авто.
+			case 5:			//РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРїРёСЃРѕРє Р°РІС‚Рѕ.
 			{
 				int i = 0;
 				for (Car car : cars) {
@@ -58,7 +58,7 @@ public class AutoSalon {
 				}
 			}
 				break;
-			case 6:			//Отобразить список прицепов.
+			case 6:			//РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРїРёСЃРѕРє РїСЂРёС†РµРїРѕРІ.
 			{
 				int i = 0;
 				for (Track track : tracks) {
@@ -67,23 +67,23 @@ public class AutoSalon {
 				}
 			}
 				break;
-			case 7:			//Отобразить закрепления авто за прицепами.
+			case 7:			//РћС‚РѕР±СЂР°Р·РёС‚СЊ Р·Р°РєСЂРµРїР»РµРЅРёСЏ Р°РІС‚Рѕ Р·Р° РїСЂРёС†РµРїР°РјРё.
 			{
 				int i = 0;
 				for (Car car : cars) {
 					if (car.getTrack() != null) {
 						i++;
-						System.out.println(i + ". Авто номер " + car.getNumber() + " - прицеп номер " + car.getTrack().getNumber());
+						System.out.println(i + ". РђРІС‚Рѕ РЅРѕРјРµСЂ " + car.getNumber() + " - РїСЂРёС†РµРї РЅРѕРјРµСЂ " + car.getTrack().getNumber());
 					}
 				}
 				if (i == 0)
-					System.out.println("Закрепления отсутствуют\n");
+					System.out.println("Р—Р°РєСЂРµРїР»РµРЅРёСЏ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚\n");
 			}
 				break;
-			case 8:			//Выход
+			case 8:			//Р’С‹С…РѕРґ
 				break;
 			default:
-				System.out.println("Неверный выбор, попробуйте снова\n");
+				System.out.println("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°\n");
 				break;
 			}
 			System.out.println();
@@ -91,7 +91,7 @@ public class AutoSalon {
 	}
 	private void showMenu(String[] menu) {
 		int i = 1;
-		System.out.println("Выберите пункт:");
+		System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚:");
 		for (String item : menu) {
 			System.out.println(i + ". " + item);
 			i++;
@@ -103,7 +103,7 @@ public class AutoSalon {
 			if (car.getNumber().equals(name))
 				return cars.indexOf(car);
 		}
-		System.out.println("Машина с номером " + name + " не найдена.");
+		System.out.println("РњР°С€РёРЅР° СЃ РЅРѕРјРµСЂРѕРј " + name + " РЅРµ РЅР°Р№РґРµРЅР°.");
 		return -1;
 	}
 	
@@ -112,43 +112,7 @@ public class AutoSalon {
 			if (track.getNumber().equals(name))
 				return tracks.indexOf(track);
 		}
-		System.out.println("Прицеп с номером " + name + " не найден .");
+		System.out.println("РџСЂРёС†РµРї СЃ РЅРѕРјРµСЂРѕРј " + name + " РЅРµ РЅР°Р№РґРµРЅ .");
 		return -1;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

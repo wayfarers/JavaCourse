@@ -1,4 +1,4 @@
-package week2.lesson3;
+package jon;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class JonTask1 {
 		height = scan.nextInt();
 		weight = scan.nextInt();
 		if (height <= 0 || weight <= 0) {
-			System.out.println("Íå âåðíûé ðàçìåð ìàññèâà");
+			System.out.println("ÐÐµ Ð²ÐµÑ€Ð½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ Ð¼Ð°ÑÑÐ¸Ð²Ð°");
 			return;
 		}
 		int[][] array = new int[height][weight];

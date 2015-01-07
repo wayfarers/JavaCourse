@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class ConsoleMenuExample {
  private static 
- String[] operationNames = {"1. Прийти","2. Уйти"
-          ,"3. Зайти","4. Выйти"};
+ String[] operationNames = {"1. РџСЂРёР№С‚Рё","2. РЈР№С‚Рё"
+          ,"3. Р—Р°Р№С‚Рё","4. Р’С‹Р№С‚Рё"};
  public static void printMenu(){
   for(String m:operationNames) System.out.println( m );
  }
@@ -12,12 +12,12 @@ public class ConsoleMenuExample {
   boolean runWhile = true;
   while(runWhile){
    printMenu();
-   System.out.println("Выберите операцию:");
+   System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РѕРїРµСЂР°С†РёСЋ:");
    int k = scan.nextInt();
    switch (k){
-    case 1:System.out.println("fucntion Прийти");break;
-    case 2:System.out.println("fucntion Уйти");break;
-    case 3:System.out.println("fucntion Зайти");break;
+    case 1:System.out.println("fucntion РџСЂРёР№С‚Рё");break;
+    case 2:System.out.println("fucntion РЈР№С‚Рё");break;
+    case 3:System.out.println("fucntion Р—Р°Р№С‚Рё");break;
     case 4:runWhile = false;
    }
   } 

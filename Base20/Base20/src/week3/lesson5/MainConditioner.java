@@ -15,35 +15,35 @@ public class MainConditioner {
 				block.getStat();
 				break;
 			case 2:
-				System.out.println("Введите индекс кондиционера: 0-9");
+				System.out.println("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РєРѕРЅРґРёС†РёРѕРЅРµСЂР°: 0-9");
 				cond_index = scan.nextInt();
 				if (cond_index < 10)
 					block.turnOn(cond_index);
 				else
-					System.out.println("Неверный индекс");
+					System.out.println("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ");
 				break;
 			case 3:
-				System.out.println("Введите индекс кондиционера: 0-9");
+				System.out.println("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РєРѕРЅРґРёС†РёРѕРЅРµСЂР°: 0-9");
 				cond_index = scan.nextInt();
 				if (cond_index < 10)
 					block.turnOff(cond_index);
 				else
-					System.out.println("Неверный индекс");
+					System.out.println("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ");
 				break;
 			case 4:
-				System.out.println("Введите индекс кондиционера: 0-9");
+				System.out.println("Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РєРѕРЅРґРёС†РёРѕРЅРµСЂР°: 0-9");
 				cond_index = scan.nextInt();
 				if (cond_index < 10) {
-					System.out.println("Введите температуру");
+					System.out.println("Р’РІРµРґРёС‚Рµ С‚РµРјРїРµСЂР°С‚СѓСЂСѓ");
 					block.setTemperature(cond_index, scan.nextInt());
 				} else
-					System.out.println("Неверный индекс");
+					System.out.println("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ");
 				break;
 			case 5:
 				break;
 
 			default:
-				System.out.println("Неверный индекс");
+				System.out.println("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ");
 				break;
 			}
 			System.out.println();
@@ -51,13 +51,13 @@ public class MainConditioner {
 	}
 	
 	public static void showMenu() {
-		String[] menu = {"Отобразить состояние всех кондиционеров", 
-				"Включить кондиционер с индексом...", 
-				"Выключить кондиционер с индексом...",
-				"Установить температуру для кондиционера с индексом...",
-				"Выход"};
+		String[] menu = {"РћС‚РѕР±СЂР°Р·РёС‚СЊ СЃРѕСЃС‚РѕСЏРЅРёРµ РІСЃРµС… РєРѕРЅРґРёС†РёРѕРЅРµСЂРѕРІ", 
+				"Р’РєР»СЋС‡РёС‚СЊ РєРѕРЅРґРёС†РёРѕРЅРµСЂ СЃ РёРЅРґРµРєСЃРѕРј...", 
+				"Р’С‹РєР»СЋС‡РёС‚СЊ РєРѕРЅРґРёС†РёРѕРЅРµСЂ СЃ РёРЅРґРµРєСЃРѕРј...",
+				"РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРјРїРµСЂР°С‚СѓСЂСѓ РґР»СЏ РєРѕРЅРґРёС†РёРѕРЅРµСЂР° СЃ РёРЅРґРµРєСЃРѕРј...",
+				"Р’С‹С…РѕРґ"};
 		
-		System.out.println("Выберите пункт:\n");
+		System.out.println("Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚:\n");
 		for (int i = 1; i <= menu.length; i++) {
 			System.out.println(i + ": " + menu[i-1]);
 		}

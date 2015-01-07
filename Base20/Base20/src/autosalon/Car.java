@@ -6,7 +6,7 @@ public class Car {
 	private static int countCars = 0;
 	private String number;
 	private String color;
-	private int status = 0;			//0 - не заведена, 1 - заведена, 3 - движение
+	private int status = 0;			//0 - РЅРµ Р·Р°РІРµРґРµРЅР°, 1 - Р·Р°РІРµРґРµРЅР°, 3 - РґРІРёР¶РµРЅРёРµ
 	private String brand = "Black";
 	int countHuman = 0;
 	
@@ -32,14 +32,14 @@ public class Car {
 			unsetTrack();
 		else 
 			if (track != null) {
-				System.out.println("У этого авто уже есть прицеп");
+				System.out.println("РЈ СЌС‚РѕРіРѕ Р°РІС‚Рѕ СѓР¶Рµ РµСЃС‚СЊ РїСЂРёС†РµРї");
 			} else 
 				if (trk.getConnectedTo() != null) {		// && trk.getConnectedTo() != this
-					System.out.println("Прицеп уже закреплен за другой машиной");
+					System.out.println("РџСЂРёС†РµРї СѓР¶Рµ Р·Р°РєСЂРµРїР»РµРЅ Р·Р° РґСЂСѓРіРѕР№ РјР°С€РёРЅРѕР№");
 				} else {
 					track = trk;
 					trk.setConnectedCar(this);
-					System.out.println("Прицеп закреплен.");
+					System.out.println("РџСЂРёС†РµРї Р·Р°РєСЂРµРїР»РµРЅ.");
 				}
 	}
 	public void unsetTrack() {
@@ -48,7 +48,7 @@ public class Car {
 			track = null;
 			tmp_trk.setConnectedCar(null);
 		} else
-			System.out.println("У этой машины нету прицепа");
+			System.out.println("РЈ СЌС‚РѕР№ РјР°С€РёРЅС‹ РЅРµС‚Сѓ РїСЂРёС†РµРїР°");
 	}
 	public Track getTrack() {
 		return track;
@@ -83,31 +83,31 @@ public class Car {
 	}
 	
 	public void printAboutMe() {
-		System.out.println("Я авто с номером " + number + ". " + "Мой цвет " + color);
+		System.out.println("РЇ Р°РІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + ". " + "РњРѕР№ С†РІРµС‚ " + color);
 	}
 	public void start() {
 		if(status == 0) {
 			status = 1;
-			System.out.println("Авто с номером " + number + " завелось.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " Р·Р°РІРµР»РѕСЃСЊ.");
 		}
 		else
-			System.out.println("Авто с номером " + number + " не может завестись, т.к. уже заведено.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РЅРµ РјРѕР¶РµС‚ Р·Р°РІРµСЃС‚РёСЃСЊ, С‚.Рє. СѓР¶Рµ Р·Р°РІРµРґРµРЅРѕ.");
 	}
 	public void move() {
 		if (status == 1) {
 			status = 3;
-			System.out.println("Авто с номером " + number + " поехало.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РїРѕРµС…Р°Р»Рѕ.");
 		}
 		else if (status == 3)
-			System.out.println("Авто с номером " + number + " не может поехать, т.к. уже едет.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РЅРµ РјРѕР¶РµС‚ РїРѕРµС…Р°С‚СЊ, С‚.Рє. СѓР¶Рµ РµРґРµС‚.");
 		else
-			System.out.println("Авто с номером " + number + " не может поехать, т.к. двигатель остановлен.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РЅРµ РјРѕР¶РµС‚ РїРѕРµС…Р°С‚СЊ, С‚.Рє. РґРІРёРіР°С‚РµР»СЊ РѕСЃС‚Р°РЅРѕРІР»РµРЅ.");
 	}
 	public void stop() {
 		if (status == 3) {
 			status = 0;
-			System.out.println("Авто с номером " + number + " остановилось.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РѕСЃС‚Р°РЅРѕРІРёР»РѕСЃСЊ.");
 		} else
-			System.out.println("Авто с номером " + number + " не может остановится, т.к. не едет.");
+			System.out.println("РђРІС‚Рѕ СЃ РЅРѕРјРµСЂРѕРј " + number + " РЅРµ РјРѕР¶РµС‚ РѕСЃС‚Р°РЅРѕРІРёС‚СЃСЏ, С‚.Рє. РЅРµ РµРґРµС‚.");
 	}
 }

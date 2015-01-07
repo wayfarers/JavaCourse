@@ -11,7 +11,7 @@ public class Phone {
 	public static Phone createPhone(String num) {
 		Phone phone = new Phone();
 		if (isNumberExist(num)) {
-			System.out.println("Такой номер уже есть в базе");
+			System.out.println("РўР°РєРѕР№ РЅРѕРјРµСЂ СѓР¶Рµ РµСЃС‚СЊ РІ Р±Р°Р·Рµ");
 		} 
 		else {
 			for(int i = 0; i < 10; i++) {
@@ -42,15 +42,15 @@ public class Phone {
 	}
 	public void call(String number) {
 		if (isNumberExist(number))
-			System.out.println("Телефон " + myNumber + " звонит телефону " + number);
+			System.out.println("РўРµР»РµС„РѕРЅ " + myNumber + " Р·РІРѕРЅРёС‚ С‚РµР»РµС„РѕРЅСѓ " + number);
 		else
-			System.out.println("Телефона " + number + " нет в базе.");
+			System.out.println("РўРµР»РµС„РѕРЅР° " + number + " РЅРµС‚ РІ Р±Р°Р·Рµ.");
 	}
 	public void sendSms(String number, String text) {
 		if (isNumberExist(number))
-			System.out.println("Сообщение телефону " + number + ":\n" + text);
+			System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ С‚РµР»РµС„РѕРЅСѓ " + number + ":\n" + text);
 		else
-			System.out.println("Телефона " + number + " нет в базе.");
+			System.out.println("РўРµР»РµС„РѕРЅР° " + number + " РЅРµС‚ РІ Р±Р°Р·Рµ.");
 	}
 
 }

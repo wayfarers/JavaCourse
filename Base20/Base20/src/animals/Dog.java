@@ -2,6 +2,6 @@ package animals;
 
 public class Dog extends Teller {
 	public void say() {
-		System.out.println("√‡‚");
+		System.out.println("Woof");
 	}
 }

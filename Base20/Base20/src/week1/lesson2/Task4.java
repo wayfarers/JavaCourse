@@ -21,7 +21,7 @@ public class Task4 {
 		FileReader fr = new FileReader(filename);
 		Scanner file = new Scanner(fr);
 		String[][] parameters = new String[2][10];
-		String line = "";		//сюда считаем весь файл
+		String line = "";		//read here whole file
 		while(file.hasNextLine()){
 			line += file.nextLine();
 		}
