@@ -1,0 +1,134 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class FileOutputStreamExmple {
+ public static void main(String[] args) throws IOException {
+  OutputStream os = new FileOutputStream("file2.txt");
+  byte[] buf = {100,101,102};
+  os.write(97);
+  os.write(buf);
+  os.close();  
+ }
+}
+
+----------------------------------------------------------
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+
+public class FileInputStreamExmple {
+ public static void main(String[] args) throws IOException {
+  InputStream is = new FileInputStream("file2.txt");
+  int example = 3;
+  int k;
+  
+  if(example == 1){
+   int codeChar = 10;
+   while(codeChar > -1){
+    codeChar = is.read();  
+    System.out.println(codeChar + " = [" + ((char)codeChar) + "]");
+   }
+  }
+  
+  if(example == 2){
+   byte[] buf = new byte[20];
+   k = is.read(buf);
+   System.out.println("k="+k);
+   for(byte b : buf) System.out.println("["+b+"]=["+(char)(b)+"]");   
+  }
+  if(example == 3){
+   int len = is.available();
+   byte[] buf = new byte[len];
+   k = is.read(buf);
+   System.out.println("k="+k);
+   for(byte b : buf) System.out.println("["+b+"]=["+(char)(b)+"]");
+  }
+ }
+}
+
+------------------------------------
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+public class BufferedReaderExmple {
+ public static void main(String[] args) throws IOException {
+  Reader isr = new InputStreamReader(System.in);
+        BufferedReader d = new BufferedReader(isr);
+        
+        String a = d.readLine();
+        
+        System.out.println("Вы напечатали: " + a);
+        
+        
+        System.out.println(d.read());
+        System.out.println(d.read());
+        System.out.println(d.read());
+        System.out.println(d.read());
+        
+ }
+}
+
+---------------------------------------------
+
+public class Thread2Exmple3_test {
+static Object obj = new Object();
+ 
+ static class MyThread extends Thread {
+
+  int number = 0;
+
+  MyThread(int k) {   
+   number = k; 
+  }
+
+  public void run() {
+   if (number == 1) {
+    work();
+   } else {
+    dontwork();
+   }   
+  }
+
+  
+  public void work() {
+   synchronized(obj){
+    System.out.println("1");
+    //while(true)if(1==0)break;
+    try {      
+     obj.wait();
+    } catch (InterruptedException e) {    
+     e.printStackTrace();
+    }
+    System.out.println("end of work");    
+   }
+  }
+
+  public void dontwork() {
+   synchronized(obj){
+    obj.notify();
+   }
+  }
+
+ }
+
+ public static void main(String[] args) throws InterruptedException {  
+
+  Thread thread1 = new MyThread(1);
+  Thread thread2 = new MyThread(2);
+  thread1.start();
+
+  Thread.currentThread().sleep(2000);  
+  System.out.println(" until notify getState = " + thread1.getState());
+
+  thread2.start();
+  Thread.currentThread().sleep(2000);  
+  System.out.println(" after notify getState = " + thread1.getState()+" thr2.state="+thread2.getState());  
+  
+ }
+
+}

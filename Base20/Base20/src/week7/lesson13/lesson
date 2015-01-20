@@ -1,0 +1,7 @@
+- Вложенный класс (nested) static
+- Внутренний (Inner) non-static
+	- обычный
+	- локальный (имеет доступ только локальным переменным типа final)
+	- анонимный (Runnable f = new Runnable() {  @Override
+												public void run() {...}
+											 }
