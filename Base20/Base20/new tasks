@@ -1,0 +1,296 @@
+[12.01.2015 19:37:48] Кузменюк Максим: public class Car  implements Comparable{
+ private int nomer;
+ @Override
+ public int compareTo(Object obj) {
+  Car car = (Car)(obj);
+  return this.nomer - car.getNomer();
+ } 
+}
+
+car1.compareTo(car2)
+************************************************
+Collection.sort(list);//Comparable
+Collection.sort(list,new NumberSortCar());//Comparator
+******************************************************
+public class NumberSortCar implements Comparator<Car>{
+ @Override
+ public int compare(Car car1, Car car2) {
+  return car1.getColor().compareTo(car2.getColor());
+ }
+}
+[12.01.2015 19:38:38] Кузменюк Максим: Task1. Написать класс Product у которого есть поля:
+name,price, дата покупки.
+с изначальной сортировкой по наименованию.
+Пусть продукт выводится на экран: Морковка цена дата
+Реализовать возможность отсортировать список:
+ - по цене 
+ - по дате закупки
+В mainProduct:
+создать 10 продуктов.
+с разной датой закупки и разной ценой.
+Вывести список без сортировки
+Отсортировать список и вывести на экран
+Отсортировать список по цене и вывести на экран
+Отсортировать список по дате закупки и вывести на экран
+[12.01.2015 19:44:23 | Изменены 19:45:01] Кузменюк Максим: public class DateExmple {
+ public static void main(String[] args) {
+  SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+     SimpleDateFormat format2 = new SimpleDateFormat(" День dd Месяц MM Год yyyy Время hh:mm");
+     SimpleDateFormat format3 = new SimpleDateFormat("dd-MM-yyyy");
+     
+  Date d = new Date();
+  System.out.println("Date: " + d);
+     System.out.println("1: "+format1.format( d )); 
+     System.out.println("2: "+format2.format ( d ));
+     System.out.println("3: "+format3.format( d )); 
+
+  
+  Calendar c = new GregorianCalendar();
+  System.out.println("GregorianCalendar:"+c.getTime());
+     System.out.println("1: "+format1.format(c.getTime())); 
+     System.out.println("2: "+format2.format(c.getTime()));
+     System.out.println("3: "+format3.format(c.getTime()));
+     System.out.println();
+     
+  Calendar c1 = new GregorianCalendar(2015, 11, 20);
+  System.out.println("GregorianCalendar(2015, 11, 20):");
+     System.out.println("1: "+format1.format(c1.getTime())); 
+     System.out.println("2: "+format2.format(c1.getTime()));
+     System.out.println("3: "+format3.format(c1.getTime()));
+     System.out.println();
+     
+     System.out.println("Операции над датами:");
+     
+     c1.add(Calendar.YEAR, 1); // увеличиваем на 1 год
+     System.out.println(format1.format(c1.getTime()));
+     c1.add(Calendar.DATE, -1); // уменьшаем на 1 день
+     //c1.add(Calendar.DAY_OF_YEAR, 1); //увеличиваем дату на 1 день
+        System.out.println(format1.format(c1.getTime()));// Fri Feb 21 00:00:00 EET 2014
+        
+ }
+}
+[12.01.2015 21:12:24] Кузменюк Максим: public class Test1Exception {
+ public static void main(String[] args) {
+  int x = 10;
+  //int y = 0;
+  double y = 0;
+  double res = x/y;
+  System.out.println(res);
+ }
+}
+***
+public class Test2Exception {
+ public static void main(String[] args) {
+  int x = 10;
+  //int y = 0;
+  double y = 0;
+  try{
+  double res = x/y;
+  System.out.println(res);
+  } catch (Exception e){
+   System.out.println("ОШИБКА !!!!");
+   System.out.println(e.getMessage());
+   e.printStackTrace();
+  }
+ }
+}
+***
+public class Test3Exception {
+ public static void main(String[] args) {
+  throw new ArithmeticException("Ой! Ой! Ой!");
+ }
+}
+***
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+public class Test4Exception {
+ public static void f() throws FileNotFoundException {
+  FileReader fr = new FileReader("file1.txt");
+ }
+ public static void main(String[] args) {
+  try {
+   f();
+  } catch (FileNotFoundException e) {
+   // TODO Auto-generated catch block
+   e.printStackTrace();
+  }
+ } 
+}
+***
+public class Test5Exception {
+ public static void main(String[] args) {
+  int k = (int)(2*Math.random());
+     try {
+         int[] a = new int[2];
+         a[0] = 22 / 2;
+         a[1] = 33 / 3;
+         a[2] = 33 / k;
+     } catch (ArithmeticException ex) {
+         System.out.println("Деление на 0!");
+     } catch (ArrayIndexOutOfBoundsException ex) {
+         System.out.println("Выход за пределы массива!");
+     } catch (Exception ex) {
+         System.out.println("Общая ошибка!");
+     }
+ }
+}
+**
+import java.util.Scanner;
+
+public class Test6Exception {
+ public class MyException extends Exception{
+  public MyException(String message){
+   super(message);
+  }
+     @Override
+     public String getMessage() {
+         return "MyException: " + super.getMessage();
+     }
+ }
+}
+[12.01.2015 21:12:53] Кузменюк Максим: Task 2. Написать метод, проверяющий, является ли строка числом. Воспользоваться Integer. valueOf( str ). Если строка не число, то метод должен кидать исключение NullPointerException.
+
+Task 3. Написать метод, проверяющий, существует ли файл с определенным именем.(Можно использовать FileReader Scanner). Если файла нет, то метод кидает исключение ArithmeticException.
+
+Task 4. Дописать к классу Продукт свои исключения: 
+ - ошибка при попытке установить отрицательную цену 
+ - ошибка при попытке установить прошлогодную дату
+[13.01.2015 19:23:34] Кузменюк Максим: public class Car implements Cloneable{ 
+ @Override
+ public Car clone() throws CloneNotSupportedException{
+  Car car1 = (Car)super.clone();
+  return car1;
+  
+ }
+}
+Написать класс Двигатель Engine(номер двигателя) и класс Автомобиль Car(двигатель и номер авто).
+Описать возможность глубокого клонирования автомобилей.
+В классе Main:  
+ - создать объект автомобиля, 
+ - создать клон автомобиля,
+ - Ссылочно сравнить двигатели у обоих автомобилей(разные это объекты или нет)
+ - Попробовать через метод класса Car через метод setNomer у класса Engine поменять номер у двигателя первого объекта Авто.
+[13.01.2015 20:29:13] Кузменюк Максим: public class TestSerilizable {
+ public static void main(String[] args) {
+  try {
+   Product pr1 = new Product("Колбаса");
+
+   // запись
+   FileOutputStream fos = new FileOutputStream("temp.out");
+   ObjectOutputStream oos = new ObjectOutputStream(fos);
+   try {
+    oos.writeObject(pr1);
+   } finally {
+    oos.close();
+   }
+
+   // чтение
+   Product pr2;
+   FileInputStream fis = new FileInputStream("temp.out");
+   ObjectInputStream oin = new ObjectInputStream(fis);
+   try {
+    pr2 = (Product) oin.readObject();
+    System.out.println(pr2);
+
+   } finally {
+    oin.close();
+   }
+  } catch (IOException e) {
+   e.printStackTrace();
+  } catch (ClassNotFoundException e) {
+   e.printStackTrace();
+  }
+
+ }
+
+}
+import java.io.Serializable;
+public class Product implements Serializable{
+
+ private static final long serialVersionUID = 1L;
+ private String name;
+ public Product(String n){
+  name = n;
+ }
+ public String toString(){
+  return name;
+ }
+}
+[13.01.2015 20:45:54] Кузменюк Максим: Task 2. Создать/использовать класс Авто(номер и двигатель авто). С консоли считать целое k.
+Создать k объектов Авто(со случайными значениями), записать каждый объект в отдельный файл(в байтовый поток с расширением ".out"),
+при этом имя файла соответсвует его номеру.
+
+Task 3. Написать программу, которая сканирует папку(из предыдущего пример) на поиск файлов с расширением ".out", 
+где в каждом файле лежит объект Авто. Десериализовать объекты из файлов в объекты и поместить их в список Авто.
+Вывести на экран список Авто.
+[13.01.2015 21:46:20] Кузменюк Максим: public class FirstThread extends Thread{
+ private String name;
+ public FirstThread(String n){
+  name = n;
+ }
+ @Override
+ public void run(){
+  for(int i = 0; i < 1000;i++){
+   System.out.println(name+"_"+i);
+  }
+ }
+}
+
+public class MainFirstThread {
+ public static void main(String[] args) {
+  FirstThread obj1 = new FirstThread("Thr1"); 
+  FirstThread obj2 = new FirstThread("\tThr2");
+  FirstThread obj3 = new FirstThread("\t\tThr3");
+  
+  obj1.start();
+  obj2.start();
+  obj3.start();
+ }
+}
+
+public class SecondThread extends Thread{
+ private String name;
+ public SecondThread(String n){
+  name = n;
+ }
+ @Override
+ public void run(){
+  while(true){
+   if(isInterrupted())break;
+  }
+  System.out.println(name+" is has stopped");
+  
+ }
+}
+import java.io.File;
+import java.util.Scanner;
+
+public class MainSecondThread {
+ public static void main(String[] args) throws InterruptedException {
+  SecondThread obj1 = new SecondThread("Thr1"); 
+  SecondThread obj2 = new SecondThread("Thr2");
+
+  
+  obj1.start();
+  obj2.start();
+  
+  Scanner scan = new Scanner(System.in);
+  scan.next();
+  obj1.interrupt();
+  Thread.sleep(2000);
+  obj2.interrupt(); 
+ }
+}
+4. Создать поток, который будет каждые 10 секунд выводить текущее время на экран. 
+Сделать возможность прерывания потока с помощью команды с консоли.
+[13.01.2015 21:50:30] Кузменюк Максим: Task 5. Консольный чат с сериализацией. В главном методе запустить сервер и клиент.
+Заранее определить папку, куда будут складываться файлы объектов.
+Класс клиент:
+ - с консоли считывает строку
+ - полученную строку сериализует в отдельный файл с определенным именем и расширением ".cht".
+Класс сервер: 
+ - имеет в себе список строк. 
+ - каждые 2 секунды сканирует заранее определенную папку и ищет "новые" файлы с расширением ".cht"
+ - при нахождении "нового" файла добавляет в список новую строку.
+ - после сканирования, если нашел "новый файл", то выводит весь список на экран.

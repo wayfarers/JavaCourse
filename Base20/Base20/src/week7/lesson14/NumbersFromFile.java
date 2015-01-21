@@ -1,5 +1,11 @@
 package week7.lesson14;
 
+/*
+ * Task 1. Написать метод принимающий имя файла, в котором содержатся числа через пробеллы и ентеры. 
+ * Вывести в консоль числа из файла, увеличенные в два раза.
+ * FileInputStream.
+ */
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
