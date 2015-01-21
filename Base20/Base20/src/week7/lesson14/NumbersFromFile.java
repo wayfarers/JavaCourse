@@ -1,10 +1,8 @@
 package week7.lesson14;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Scanner;
 import java.lang.Integer;
 
 public class NumbersFromFile {
@@ -22,22 +20,11 @@ public class NumbersFromFile {
 					code = fileStream.read();
 				}
 				num = Integer.valueOf(myInt);
-				System.out.println(num * 2);
+				System.out.print(num * 2 + " ");
 				myInt = "";
-			}
+			} else if (code == 10)
+				System.out.println();
 		}
-		
-		
-//		Scanner file = new Scanner(fileStream);
-//		boolean doIt = true;
-		
-//		while(doIt) {
-//			if (file.hasNextLine()) {
-//				String line = file.nextLine();
-//				int n = Integer.parseInt(line);
-////				System.out.print(n);
-//			} else
-//				doIt = false;
-//		}	
+		fileStream.close();
 	}
 }
