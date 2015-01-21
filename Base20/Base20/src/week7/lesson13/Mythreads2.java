@@ -10,6 +10,7 @@ import week7.lesson13.MyThreads.Test;
  */
 
 public class Mythreads2 {
+	public static Integer lock = 1;
 	public static class SuperThread extends Thread {
 		String name = "Main thread ";
 
@@ -39,14 +40,26 @@ public class Mythreads2 {
 		SecondaryThread(String name) {
 			this.name += name;
 		}
+		
+		public synchronized void doSomething() {
+			System.out.println("Doing something");
+		}
 
 		public void run() {
 			System.out.println(name);
-			while (true)
+			while (true) {
+				synchronized (lock) {
+					System.out.printf("%s - %s\n", name, "a");
+					System.out.printf("%s - %s\n", name, "b");
+					System.out.printf("%s - %s\n", name, "c");
+					System.out.printf("%s - %s\n", name, "d");
+				}
+				
 				if (isInterrupted()) {
 					System.out.println(name + " - interrupted");
 					return;
 				}
+			}
 		}
 	}
 	

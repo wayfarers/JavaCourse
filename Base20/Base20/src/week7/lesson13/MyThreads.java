@@ -12,11 +12,12 @@ public class MyThreads {
 		}
 		public void run(){
 			System.out.println(name);
-			while(true)
-				if(isInterrupted()) {
+			while(true) {
+				if (isInterrupted()) {
 					System.out.println(name + " - interrupted");
 					return;
 				}
+			}
 		}
 	}
 	public static void main(String[] args) {
