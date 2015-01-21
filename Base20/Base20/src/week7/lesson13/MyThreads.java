@@ -1,5 +1,7 @@
 package week7.lesson13;
 
+//Task 1. Создать 100 потоков, каждый их которых выведет на экран свой номер и дождется, пока его прервут.
+
 import java.util.ArrayList;
 
 public class MyThreads {

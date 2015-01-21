@@ -7,7 +7,6 @@ public class TheadsExample {
 			this.name = name;
 		}
 		public void run(){
-			// sleep(6000);
 			for(int i=0;i<2000;i++){
 
 				System.out.println(name+i);
@@ -37,7 +36,7 @@ public class TheadsExample {
 		//
 		if(example == 3){
 			thr1.start();
-			Thread.sleep(2000);   
+			Test.sleep(2000);   
 			System.out.println("статус4="+thr1.getState());//TIMED_WAITING
 		}
 		//
