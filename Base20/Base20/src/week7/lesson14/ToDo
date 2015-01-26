@@ -5,7 +5,7 @@ FileInputStream.
 + Task 2. Запросить у пользователя число. Определить это целое число, дробное число или не число.
 (InputStreamReader и BufferedReader, без Scanner)
 
-Написать класс Monitor(nameFile1,nameFile2), в котором два потока.
++ Написать класс Monitor(nameFile1,nameFile2), в котором два потока.
 
 1. Поток 1(ThreadCreator), считывает строку с консоли записывает в nameFile1, 
  будит поток 2.(objSynchro.notify())

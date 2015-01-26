@@ -158,7 +158,5 @@ public class TwoThreads {
 	public static void main(String[] args) throws Exception {
 		Monitor test = new Monitor("file1.txt", "file2.txt");
 		test.start();
-		System.out.println("Program finished");
-
 	}
 }
