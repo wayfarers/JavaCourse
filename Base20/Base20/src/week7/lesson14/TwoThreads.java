@@ -65,24 +65,22 @@ public class TwoThreads {
 
 		public void run() {
 			while (!isInterrupted()) {
+				System.out.println("Thread 1 working");
+				line = scan.nextLine();
+				if (line.equals("quit") | line.equals("exit")) {
+					mon.stop();
+				}
+				try {
+					toFile = new FileWriter(file1, true);
+					toFile.write(line + "\n");
+					toFile.close();
+				} catch (IOException e) {
+					System.out.println("Writing error.");
+					e.printStackTrace();
+					return;
+				}
 				synchronized (file1) {
-					System.out.println("Thread 1 working");
-					if (scan.hasNextLine()) {
-						line = scan.nextLine();
-						if (line.equals("quit") | line.equals("exit")) {
-							mon.stop();
-						}
-					}
-					try {
-						toFile = new FileWriter(file1, true);
-						toFile.write(line + "\n");
-						toFile.close();
-					} catch (IOException e) {
-						System.out.println("Writing error.");
-						e.printStackTrace();
-						return;
-					}
-					file1.notify();
+					file1.notifyAll();
 				}
 			}
 			System.out.println("Thread 1: interrupted");
@@ -90,67 +88,49 @@ public class TwoThreads {
 	}
 	
 	public static class ThreadWriter extends Thread {
-		int symbol;
-		FileWriter toFile;
-		FileReader fromFile; 
+		 
 		File file1, file2;
 		
 		public ThreadWriter(File fromFile, File toFile) {
 			file1 = fromFile;
 			file2 = toFile;
 		}
-
+		
+		@Override
 		public void run() {
+			try {
+				runInternal();
+			} catch (InterruptedException e) {
+				// Ignore the error
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				System.out.println("Thread 2: interrupted");
+			}
+		}
+		
+		private void copyFile(File f1, File f2) throws IOException {
+			int symbol;
+			FileReader reader = new FileReader(f1);
+			FileWriter writer= new FileWriter(f2);
+			
+			while ((symbol = reader.read()) != -1) {
+				writer.write(symbol);
+			}
+			
+			writer.close();
+			reader.close();
+		}
+
+		public void runInternal() throws InterruptedException, IOException {
 			while (!isInterrupted()) {
 				synchronized (file1) {
+					file1.wait();
 					System.out.println("\tThread 2 working");
-					if (!file1.exists())
-						try {
-							file1.wait();
-							System.out.println("/tWaiting");
-						} catch (InterruptedException e) {
-							System.out.println("Thread waiting error");
-							e.printStackTrace();
-							return;
-						}
-					
-					try {
-						fromFile = new FileReader(file1);
-						toFile = new FileWriter(file2);
-					} catch (FileNotFoundException e) {
-						System.out.println("Thread 2: file not found");
-						e.printStackTrace();
-						return;
-					} catch (IOException e) {
-						System.out.println("Thread 2: error writing file");
-						e.printStackTrace();
-						return;
-					}
-					
-					try {
-						while ((symbol = fromFile.read()) != -1) {
-							toFile.write(symbol);
-						}
-						fromFile.close();
-					} catch (IOException e) {
-						System.out.println("Thread 2: error reading file");
-						e.printStackTrace();
-						return;
-					}
-					try {
-						file1.wait();
-					} catch (InterruptedException e) {
-						break;
-					}
+					copyFile(file1, file2);
 				}
 			}
-			try {
-				toFile.close();
-			} catch (IOException e) {
-				System.out.println("Thread 2: error closing file");
-				e.printStackTrace();
-			}
-			System.out.println("Thread 2: interrupted");
 		}
 
 	}
