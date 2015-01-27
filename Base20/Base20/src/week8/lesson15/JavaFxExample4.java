@@ -18,41 +18,41 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class JavaFxExample4 extends Application{
- public static void main(String[] args) {
-  launch();
- }
+	public static void main(String[] args) {
+		launch();
+	}
 
- @Override
- public void start(Stage stage) throws Exception {
-  stage.setTitle("Первый пример");
-  stage.setScene(createScene());
-  stage.show();
- }
- Text text;
- public Scene createScene(){
-  GridPane grid = new GridPane();
-  grid.setAlignment(Pos.CENTER);
-  grid.setHgap(20);
-  grid.setVgap(10);
-  grid.setPadding(new Insets(25, 25, 25, 25));
-  //
-  Button btn = new Button("Button 1");
-  text = new Text();
-  text.setText("Пустой текст");
-  //
-  btn.setOnAction(new EventHandler<ActionEvent>() {
-    
-      @Override
-      public void handle(ActionEvent e) {
-          text.setFill(Color.MAROON);
-          text.setText(text.getText()+"\nWai! Wai! Somebody pressed on me");
-      }
-  });
-  //
-  grid.add(btn,0,0);
-  grid.add(text,1,0);
-  //  
-  Scene scene = new Scene(grid, 600, 400);
-  return scene;
- }
+	@Override
+	public void start(Stage stage) throws Exception {
+		stage.setTitle("Первый пример");
+		stage.setScene(createScene());
+		stage.show();
+	}
+	Text text;
+	public Scene createScene(){
+		GridPane grid = new GridPane();
+		grid.setAlignment(Pos.CENTER);
+		grid.setHgap(20);
+		grid.setVgap(10);
+		grid.setPadding(new Insets(25, 25, 25, 25));
+		//
+		Button btn = new Button("Button 1");
+		text = new Text();
+		text.setText("Пустой текст");
+		//
+		btn.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent e) {
+				text.setFill(Color.MAROON);
+				text.setText(text.getText()+"\nWai! Wai! Somebody pressed on me");
+			}
+		});
+		//
+		grid.add(btn,0,0);
+		grid.add(text,1,0);
+		//  
+		Scene scene = new Scene(grid, 600, 400);
+		return scene;
+	}
 }

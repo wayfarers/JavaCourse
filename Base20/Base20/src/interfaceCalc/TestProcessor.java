@@ -21,15 +21,33 @@ public class TestProcessor extends AbstractProcessor {
 			number = "";
 				setTemp(getResult());
 		}
+		else if (c == 'C') {
+			setTemp(0);
+			setResult(0);
+			operation = ' ';
+			number = "";
+		}
 		else if (c == '=') {
-			if (operation == '+')
+			if (operation == '+') {
 				setResult(getTemp() + getResult());
-			else if (operation == '-')
+				setTemp(0);
+				operation = ' ';
+			}
+			else if (operation == '-') {
 				setResult(getTemp() - getResult());
-			else if (operation == '/')
+				setTemp(0);
+				operation = ' ';
+			}
+			else if (operation == '/') {
 				setResult(getTemp() / getResult());
-			else if (operation == '*')
+				setTemp(0);
+				operation = ' ';
+			}
+			else if (operation == '*') {
 				setResult(getTemp() * getResult());
+				setTemp(0);
+				operation = ' ';
+			}
 		}
 	}
 }
