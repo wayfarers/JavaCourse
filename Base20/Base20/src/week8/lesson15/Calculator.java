@@ -20,6 +20,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * This class uses {@link TestProcessor}
+ * @author wayfarer
+ *
+ */
 public class Calculator extends Application {
 
 	@Override
