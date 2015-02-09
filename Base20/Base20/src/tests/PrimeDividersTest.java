@@ -14,7 +14,7 @@ public class PrimeDividersTest {
 	
 	@Test
 	public void testPrimeDividers() {
-		assertEquals(PrimeDividers.findPrimeDividers(10).toString(), "[2, 5]");
+		assertArrayEquals(PrimeDividers.findPrimeDividers(10).toArray(new Integer[]{}), new Integer[]{2, 5});
 	}
 
 	@Test

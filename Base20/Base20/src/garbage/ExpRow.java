@@ -18,7 +18,7 @@ public class ExpRow {
 		double sum = 0;
 		double summand = 1;
 		int power = 1;
-		while (summand > 0) {
+		while (summand != 0) {
 			sum += summand;
 			summand = summand * x / power;
 			power++;
