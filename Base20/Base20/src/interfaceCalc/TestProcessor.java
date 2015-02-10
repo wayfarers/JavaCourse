@@ -14,40 +14,46 @@ public class TestProcessor extends AbstractProcessor {
 		int ch = Character.getNumericValue(c);
 		if(ch < 10 && ch >= 0) {
 			number += c;
-			setResult(Integer.parseInt(number));
+			if (number.length() <= 10)
+				setResult(Long.parseLong(number));
 		}
-		else if (c == '+' || c == '-' || c == '/' || c == '*') {
+		else switch (c) {
+		case '+':
+		case '-':
+		case '/':
+		case '*':
 			operation = c;
 			number = "";
-				setTemp(getResult());
-		}
-		else if (c == 'C') {
+			setTemp(getResult());
+			break;
+		case 'C':
 			setTemp(0);
 			setResult(0);
 			operation = ' ';
 			number = "";
-		}
-		else if (c == '=') {
-			if (operation == '+') {
+			break;
+		case '=':
+			switch (operation) {
+			case '+':
 				setResult(getTemp() + getResult());
-				setTemp(0);
-				operation = ' ';
-			}
-			else if (operation == '-') {
+				break;
+			case '-':
 				setResult(getTemp() - getResult());
-				setTemp(0);
-				operation = ' ';
-			}
-			else if (operation == '/') {
+				break;
+			case '/':
 				setResult(getTemp() / getResult());
-				setTemp(0);
-				operation = ' ';
-			}
-			else if (operation == '*') {
+				break;
+			case '*':
 				setResult(getTemp() * getResult());
-				setTemp(0);
-				operation = ' ';
+				break;
+			default:
+				break;
 			}
+			setTemp(0);
+			operation = ' ';
+			break;
+		default:
+			break;
 		}
 	}
 }
